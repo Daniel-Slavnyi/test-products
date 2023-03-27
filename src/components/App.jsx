@@ -1,8 +1,8 @@
+import { Routes, Route } from 'react-router-dom';
 import Layout from 'pages/Layout';
 import NotFound from 'pages/NotFound/NotFound';
 import Product from 'pages/Product/Product';
 import Table from 'pages/Table/Table';
-import { Routes, Route } from 'react-router-dom';
 
 export const App = () => {
   return (
