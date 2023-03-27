@@ -1,0 +1,22 @@
+
+.list {
+    display: grid;
+    gap: 10px;
+}
+
+.item {
+    list-style: none;
+}
+
+.link {
+    color: var(--gray);
+    transition: all 0.5s ease;
+}
+
+.link:hover {
+    color: var(--primary);
+}
+
+ .active {
+    color: var(--primary);
+}

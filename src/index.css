@@ -2,9 +2,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,4 +25,14 @@ a {
 
 :root {
   --primary: rgb(118 83 252 / 100%);
+  --white: rgb(245 246 248 / 100%);
+  --red: #DE0000;
+  --bg-layout: #F5F6F8;
+  --gray:rgba(120, 125, 133, 1);
+  --gray-light: #EBEBEB;
+
+  --font-family: 'Noto Sans', sans-serif;
+	--smp: 14px;
+	--mdp: 16px;
+	--lgp: 18px;
 }

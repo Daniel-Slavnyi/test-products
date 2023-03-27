@@ -1,0 +1,14 @@
+.smp {
+    font-size: var(--smp);
+    line-height: calc(24/14);
+}
+
+.mdp {
+    font-size: var(--mdp);
+    line-height: calc(24/16);
+}
+
+.lgp {
+    font-size: var(--lgp);
+    line-height: calc(29/18);
+}
