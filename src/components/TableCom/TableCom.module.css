@@ -1,0 +1,40 @@
+.wrapper {
+    
+    margin-bottom: 3rem;
+}
+
+.table {
+    width: 100%;
+    box-shadow:0 5px 15px rgba(0, 0, 0, 0.2);
+    padding:15px;
+    border-spacing: 20px;
+    border-collapse:separate;
+    border-radius: 20px;
+}
+
+.thead {
+    border-bottom: 1px solid var(--gray);
+}
+
+.table th {
+    background-color: var(--primary);
+    border-radius:5px;
+    color:var(--white);
+    padding:5px;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.table tr:nth-child(even) {
+    border-radius:5px;
+    background-color: var( --gray-light)
+}
+
+.table tr:hover {
+    cursor: pointer;
+}
+th {
+    height: 47px;
+}

@@ -1,11 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import cn from 'classnames';
 import style from './SideBar.module.css';
 
 export default function SideBar({ className }) {
   return (
-    <div className={cn(className, style.wrapper)}>
+    <div className={className}>
       <nav>
         <ul className={style.list}>
           <li className={style.item}>

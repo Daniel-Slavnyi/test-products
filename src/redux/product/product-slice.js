@@ -6,11 +6,27 @@ const initialState = {
   itemsTotal: null,
   error: null,
   isLoading: false,
+  directionSort: false,
 };
 
 const productSlice = createSlice({
   name: 'product',
   initialState,
+  reducers: {
+    getSort(state, action) {
+      if (state.directionSort) {
+        state.items = state.items.sort((a, b) =>
+          a[action.payload] > b[action.payload] ? -1 : 1
+        );
+        state.directionSort = !state.directionSort;
+        return;
+      }
+      state.items = state.items.sort((a, b) =>
+        a[action.payload] > b[action.payload] ? 1 : -1
+      );
+      state.directionSort = !state.directionSort;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(products.pending, state => {
@@ -29,6 +45,8 @@ const productSlice = createSlice({
   },
 });
 
-const { reducer } = productSlice;
+const { actions, reducer } = productSlice;
+
+export const { getSort } = actions;
 
 export default reducer;
