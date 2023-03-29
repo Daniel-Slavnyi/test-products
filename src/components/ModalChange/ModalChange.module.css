@@ -13,6 +13,7 @@
 }
 
 .modal {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,3 +24,72 @@
     border-radius: 25px;
     border: 1px solid var(--primary);
 }
+
+.form {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.label {
+    position: relative;
+}
+
+.input {
+    background-color: transparent;
+  border: none;
+  outline: transparent;
+  border-bottom: 1px solid var(--gray);
+  transition: all 0.5s ease;
+}
+
+ .input:focus-within {
+    border-bottom: 1px solid var(--primary);
+  }
+  .input:not(:placeholder-shown) {
+    border-bottom: 1px solid var(--primary);
+  }
+
+  .span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease;
+  }
+
+  .input:focus-within + .span {
+    transform: translateY(-140%);
+    color: var(--primary);
+  }
+
+  .input:not(:placeholder-shown) + .span {
+    transform: translateY(-140%);
+    color: var(--primary);
+  }
+
+.changebtn {
+    background-color: none;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.changebtn:hover svg {
+    fill: var(--primary);
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .closebtn:hover svg {
+    fill: var(--primary);
+  }

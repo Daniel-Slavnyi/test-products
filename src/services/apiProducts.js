@@ -10,7 +10,7 @@ export const getProducts = async () => {
     const { data } = await backend.get('/products', {
       params: {
         skip: 0,
-        limit: 10,
+        limit: 100,
       },
     });
     return data;

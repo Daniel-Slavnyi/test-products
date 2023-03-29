@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deletePr } from 'redux/product/product-oparation';
 import { getItems, isArrowUp } from 'redux/product/product-selector';
 import { getSort } from 'redux/product/product-slice';
+
+import { CiSettings } from 'react-icons/ci';
+import { AiOutlineDelete } from 'react-icons/ai';
 import style from './TableCom.module.css';
 
 export default function TableCom() {
@@ -13,7 +16,6 @@ export default function TableCom() {
   const items = useSelector(getItems);
   const dispatch = useDispatch();
   const isArrowUpEl = useSelector(isArrowUp);
-  
 
   const onSort = field => {
     dispatch(getSort(field));
@@ -86,6 +88,7 @@ export default function TableCom() {
               <br />{' '}
               {sortArr === 'category' ? (isArrowUpEl ? 'down' : 'up') : null}
             </th>
+            <th></th>
           </tr>
         </thead>
         <tbody className={style.tbody}>
@@ -106,21 +109,23 @@ export default function TableCom() {
               <td>{row.rating}</td>
               <td>{row.stock}</td>
               <td>{row.category}</td>
-              <td>
+              <td className={style.wrapbutton}>
                 <button
+                  className={style.button}
                   onClick={() => {
                     setChangedItem(row);
                     setIsOpenModal(true);
                   }}
                 >
-                  change
+                  <CiSettings style={{ fontSize: '20px' }} />
                 </button>
                 <button
+                  className={style.button}
                   onClick={() => {
                     onDelete(row.id);
                   }}
                 >
-                  deletet
+                  <AiOutlineDelete style={{ fontSize: '20px' }} />
                 </button>
               </td>
             </tr>

@@ -8,7 +8,7 @@ import { FallingLines } from 'react-loader-spinner';
 export default function Table() {
   const dispatch = useDispatch();
   const isLoadingEl = useSelector(isLoading);
-  console.log('hello');
+
   useEffect(() => {
     dispatch(products());
     // eslint-disable-next-line react-hooks/exhaustive-deps

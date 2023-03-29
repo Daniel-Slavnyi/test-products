@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changePr } from 'redux/product/product-oparation';
+
+import { AiOutlineClose } from 'react-icons/ai';
+import { MdOutlinePublishedWithChanges } from 'react-icons/md';
 import style from './ModalChange.module.css';
 
 export default function ModalChange({ changedItem, setIsOpenModal }) {
@@ -29,81 +32,96 @@ export default function ModalChange({ changedItem, setIsOpenModal }) {
   return (
     <div className={style.backdrop}>
       <div className={style.modal}>
-        <form>
-          <label>
+        <form className={style.form}>
+          <label className={style.label}>
             <input
+              className={style.input}
               name="title"
               value={title}
               onChange={e => {
                 setTitle(e.target.value);
               }}
               type="text"
+              placeholder=" "
             />
-            <span>Назва</span>
+            <span className={style.span}>Назва</span>
           </label>
-          <label>
+          <label className={style.label}>
             <input
+              className={style.input}
               name="description"
               value={description}
               onChange={e => {
                 setDescription(e.target.value);
               }}
               type="text"
+              placeholder=" "
             />
-            <span>Опис</span>
+            <span className={style.span}>Опис</span>
           </label>
-          <label>
+          <label className={style.label}>
             <input
+              className={style.input}
               name="price"
               value={price}
               onChange={e => {
                 setPrice(e.target.value);
               }}
               type="text"
+              placeholder=" "
             />
-            <span>Ціна</span>
+            <span className={style.span}>Ціна</span>
           </label>
-          <label>
+          <label className={style.label}>
             <input
+              className={style.input}
               name="rating"
               value={rating}
               onChange={e => {
                 setRating(e.target.value);
               }}
               type="text"
+              placeholder=" "
             />
-            <span>Рейтинг</span>
+            <span className={style.span}>Рейтинг</span>
           </label>
-          <label>
+          <label className={style.label}>
             <input
+              className={style.input}
               name="stock"
               value={stock}
               onChange={e => {
                 setStock(e.target.value);
               }}
               type="text"
+              placeholder=" "
             />
-            <span>Сток</span>
+            <span className={style.span}>Сток</span>
           </label>
-          <label>
+          <label className={style.label}>
             <input
+              className={style.input}
               name="category"
               value={category}
               onChange={e => {
                 setcategory(e.target.value);
               }}
               type="text"
+              placeholder=" "
             />
-            <span>Категорія</span>
+            <span className={style.span}>Категорія</span>
           </label>
-          <button onClick={handleChange}>Change</button>
+          <button onClick={handleChange} className={style.changebtn}>
+            <MdOutlinePublishedWithChanges />
+          </button>
         </form>
         <button
+          className={style.closebtn}
           onClick={() => {
             setIsOpenModal(false);
           }}
         >
-          Close
+          <AiOutlineClose />
         </button>
       </div>
     </div>

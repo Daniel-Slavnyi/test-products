@@ -33,11 +33,11 @@
 
 @media (max-width: 765px) {
     .wrapper {
-        grid-template-columns: minmax(320px, 1fr);
+        grid-template-columns: 10px  minmax(320px, 1fr) 10px;
         grid-template-areas: 
-         "header"
-         "outlet"
-         "footer"
+         "header header header"
+         ". outlet ."
+         "footer footer footer"
         ;
     }
 
@@ -48,4 +48,8 @@
     .sidebar {
         display: none;
     }
+
+    .outlet {
+    grid-area: outlet;
+}
 }
