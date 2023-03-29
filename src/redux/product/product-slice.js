@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { products } from './product-oparation';
+import { changePr, deletePr, products } from './product-oparation';
 
 const initialState = {
   items: [],
@@ -39,6 +39,38 @@ const productSlice = createSlice({
         state.itemsTotal = action.payload.total;
       })
       .addCase(products.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(deletePr.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(deletePr.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = state.items.filter(item => item.id !== action.payload.id);
+      })
+      .addCase(deletePr.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(changePr.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(changePr.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.items = state.items.map(item => {
+          if (item.id === action.payload.id) {
+            return {
+              ...item,
+              ...action.payload,
+            };
+          }
+          return item;
+        });
+      })
+      .addCase(changePr.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

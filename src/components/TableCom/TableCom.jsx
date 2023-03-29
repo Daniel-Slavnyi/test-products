@@ -1,19 +1,26 @@
+import ModalChange from 'components/ModalChange/ModalChange';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { deletePr } from 'redux/product/product-oparation';
 import { getItems, isArrowUp } from 'redux/product/product-selector';
 import { getSort } from 'redux/product/product-slice';
 import style from './TableCom.module.css';
 
 export default function TableCom() {
   const [sortArr, setSortArr] = useState('');
+  const [changedItem, setChangedItem] = useState({});
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const items = useSelector(getItems);
   const dispatch = useDispatch();
   const isArrowUpEl = useSelector(isArrowUp);
-  console.log('iemts', items);
-  console.log('sortArr', sortArr);
+  
 
   const onSort = field => {
     dispatch(getSort(field));
+  };
+
+  const onDelete = id => {
+    dispatch(deletePr(id));
   };
 
   return (
@@ -100,12 +107,32 @@ export default function TableCom() {
               <td>{row.stock}</td>
               <td>{row.category}</td>
               <td>
-                <button>change</button> <button>deletet</button>
+                <button
+                  onClick={() => {
+                    setChangedItem(row);
+                    setIsOpenModal(true);
+                  }}
+                >
+                  change
+                </button>
+                <button
+                  onClick={() => {
+                    onDelete(row.id);
+                  }}
+                >
+                  deletet
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {isOpenModal && (
+        <ModalChange
+          changedItem={changedItem}
+          setIsOpenModal={setIsOpenModal}
+        />
+      )}
     </div>
   );
 }

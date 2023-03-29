@@ -8,7 +8,6 @@ import { FallingLines } from 'react-loader-spinner';
 export default function Table() {
   const dispatch = useDispatch();
   const isLoadingEl = useSelector(isLoading);
-  console.log('isLoadingEl', isLoadingEl);
 
   useEffect(() => {
     dispatch(products());
