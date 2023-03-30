@@ -1,0 +1,27 @@
+.list {
+    display: flex;
+    gap: 15px;
+}
+
+.item {
+    display: block;
+}
+
+.link {
+    padding: 5px;
+
+    color: var(--gray);
+    transition: all 0.5s ease;
+}
+
+.link:hover {
+    color: var(--primary);
+}
+
+.active {
+    padding: 5px;
+
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}

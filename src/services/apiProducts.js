@@ -39,3 +39,12 @@ export const changeProducts = async objProd => {
     return error;
   }
 };
+
+export const createProducts = async objProd => {
+  try {
+    const { data } = await backend.post(`/products/add`, objProd);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};

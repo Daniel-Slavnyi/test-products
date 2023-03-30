@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   changeProducts,
+  createProducts,
   deleteProducts,
   getProducts,
 } from 'services/apiProducts';
@@ -34,6 +35,19 @@ export const changePr = createAsyncThunk(
   async (objProd, thunkAPI) => {
     try {
       const res = await changeProducts(objProd);
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const createPr = createAsyncThunk(
+  'products/create',
+  async (objProd, thunkAPI) => {
+    try {
+      const res = await createProducts(objProd);
+      console.log('res', res);
       return res;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

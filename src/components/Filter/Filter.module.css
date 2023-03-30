@@ -1,0 +1,37 @@
+.label {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 200px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gray);
+    outline: transparent;
+}
+
+.input:focus-within {
+    border-bottom: 1px solid var(--primary);
+}
+.input:not(:placeholder-shown) {
+    border-bottom: 1px solid var(--primary);
+}
+
+.span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+ .input:focus-within + .span {
+    transform: translateY(-140%);
+    color: var(--primary);
+  }
+
+  .input:not(:placeholder-shown) + .span {
+    transform: translateY(-140%);
+    color: var(--primary);
+  }
