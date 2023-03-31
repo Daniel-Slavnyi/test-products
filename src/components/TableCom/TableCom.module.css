@@ -55,6 +55,16 @@ border-radius: 20px;
   border: none;
 }
 
+td > a {
+  display: block;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+td > a:hover {
+  color: var(--primary);
+}
+
 @media (max-width: 768px) {
   .wrapper {
     overflow-x: auto;

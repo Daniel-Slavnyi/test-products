@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { changePr } from 'redux/product/product-oparation';
 
 import { AiOutlineClose } from 'react-icons/ai';
 import { MdOutlinePublishedWithChanges } from 'react-icons/md';
+
 import style from './ModalChange.module.css';
 
 export default function ModalChange({ changedItem, setIsOpenModal }) {

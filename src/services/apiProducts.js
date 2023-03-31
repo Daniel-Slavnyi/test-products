@@ -19,6 +19,15 @@ export const getProducts = async () => {
   }
 };
 
+export const getProductById = async id => {
+  try {
+    const { data } = await backend.get(`/products/${id}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
 export const deleteProducts = async id => {
   try {
     const { data } = await backend.delete(`/products/${id}`);

@@ -1,12 +1,15 @@
 import React from 'react';
-import style from './MadeProduct.module.css';
-import img from './img.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCreatedItems } from 'redux/product/product-selector';
+
+import img from './img.png';
 import Ptag from 'components/Ptag/Ptag';
 import Tab from 'components/Tab/Tab';
-import { AiOutlineDelete } from 'react-icons/ai';
+
+import { getCreatedItems } from 'redux/product/product-selector';
 import { deleteCreatedPr } from 'redux/product/product-slice';
+
+import { AiOutlineDelete } from 'react-icons/ai';
+import style from './MadeProduct.module.css';
 
 export default function MadeProduct() {
   const createdProduct = useSelector(getCreatedItems);

@@ -1,13 +1,13 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+
+import { createPr } from 'redux/product/product-oparation';
 
 import { IoMdAddCircleOutline } from 'react-icons/io';
-
 import style from './ProductForm.module.css';
-import { createPr } from 'redux/product/product-oparation';
 
 export default function ProductForm() {
   const dispatch = useDispatch();
@@ -26,9 +26,7 @@ export default function ProductForm() {
         .required('поле має містити рейтинг'),
     }),
     onSubmit: value => {
-      console.log('value', value);
       dispatch(createPr({ ...value, stock: new Date() }));
-      //   dispatch(addToStory(value.ttn));
     },
   });
 

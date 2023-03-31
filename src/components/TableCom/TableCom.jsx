@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 
+import Filter from 'components/Filter/Filter';
 import ModalChange from 'components/ModalChange/ModalChange';
 
 import { deletePr } from 'redux/product/product-oparation';
@@ -11,7 +13,6 @@ import { CiSettings } from 'react-icons/ci';
 import { AiOutlineDelete } from 'react-icons/ai';
 
 import style from './TableCom.module.css';
-import Filter from 'components/Filter/Filter';
 
 export default function TableCom() {
   const [sortArr, setSortArr] = useState('');
@@ -22,6 +23,8 @@ export default function TableCom() {
   const items = useSelector(getItems);
   const isArrowUpEl = useSelector(isArrowUp);
   const dispatch = useDispatch();
+
+  const location = useLocation();
 
   const onSort = field => {
     dispatch(getSort(field));
@@ -114,22 +117,56 @@ export default function TableCom() {
           <tbody className={style.tbody}>
             {filteredItems?.map(row => (
               <tr key={row.id} className={style.trow}>
-                <td>{row.id}</td>
-                <td>{row.title}</td>
-                <td>{row.description}</td>
-                <td>{row.price}</td>
                 <td>
-                  <img
-                    width="100"
-                    height="70"
-                    style={{ borderRadius: '5px' }}
-                    src={row.thumbnail}
-                    alt={row.name}
-                  />
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    {row.id}
+                  </Link>
                 </td>
-                <td>{row.rating}</td>
-                <td>{row.stock}</td>
-                <td>{row.category}</td>
+                <td>
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    {row.title}
+                  </Link>
+                </td>
+                <td>
+                  <Link
+                    style={{ height: '100%' }}
+                    to={`${row.id}`}
+                    state={{ from: location }}
+                  >
+                    {row.description}
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    {row.price}
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    <img
+                      width="100"
+                      height="70"
+                      style={{ borderRadius: '5px' }}
+                      src={row.thumbnail}
+                      alt={row.name}
+                    />
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    {row.rating}
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    {row.stock}
+                  </Link>
+                </td>
+                <td>
+                  <Link to={`${row.id}`} state={{ from: location }}>
+                    {row.category}
+                  </Link>
+                </td>
                 <td>
                   <div className={style.wrapbutton}>
                     <button

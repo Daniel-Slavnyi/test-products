@@ -3,6 +3,7 @@ import {
   changeProducts,
   createProducts,
   deleteProducts,
+  getProductById,
   getProducts,
 } from 'services/apiProducts';
 
@@ -11,6 +12,18 @@ export const products = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await getProducts();
+      return res;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const productById = createAsyncThunk(
+  'products/getId',
+  async (id, thunkAPI) => {
+    try {
+      const res = await getProductById(id);
       return res;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -47,7 +60,6 @@ export const createPr = createAsyncThunk(
   async (objProd, thunkAPI) => {
     try {
       const res = await createProducts(objProd);
-      console.log('res', res);
       return res;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

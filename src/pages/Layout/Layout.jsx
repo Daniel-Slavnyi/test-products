@@ -1,11 +1,13 @@
-import { Outlet } from 'react-router-dom';
-import Header from 'components/Header/Header';
 import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+
+import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import SideBar from 'components/SideBar/SideBar';
+
 import { products } from 'redux/product/product-oparation';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 import style from './Layout.module.css';
 

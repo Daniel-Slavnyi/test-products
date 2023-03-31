@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changePr, createPr, deletePr, products } from './product-oparation';
+import {
+  changePr,
+  createPr,
+  deletePr,
+  productById,
+  products,
+} from './product-oparation';
 
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
@@ -13,6 +19,7 @@ const persistConfig = {
 const initialState = {
   items: [],
   createItems: [],
+  itemById: {},
   itemsTotal: null,
   error: null,
   isLoading: false,
@@ -55,6 +62,19 @@ const productSlice = createSlice({
         state.itemsTotal = action.payload.total;
       })
       .addCase(products.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      // --- GET By ID
+      .addCase(productById.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(productById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.itemById = { ...action.payload };
+      })
+      .addCase(productById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
