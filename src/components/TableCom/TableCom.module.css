@@ -31,7 +31,7 @@ border-radius: 20px;
 }
 
 .tbody td {
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid var(--gray);
   padding: 10px;
   vertical-align: middle;
 }
@@ -43,10 +43,7 @@ border-radius: 20px;
 .wrapbutton {
   display: flex;
   gap: 15px;
-  height: 70px;
 }
-
-
 
 .wrapbutton svg:hover {
   fill: var(--primary);
@@ -54,7 +51,7 @@ border-radius: 20px;
 
 .button {
   cursor: pointer;
-  background-color: none;
+  background: none;
   border: none;
 }
 

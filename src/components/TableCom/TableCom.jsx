@@ -130,24 +130,26 @@ export default function TableCom() {
                 <td>{row.rating}</td>
                 <td>{row.stock}</td>
                 <td>{row.category}</td>
-                <td className={style.wrapbutton}>
-                  <button
-                    className={style.button}
-                    onClick={() => {
-                      setChangedItem(row);
-                      setIsOpenModal(true);
-                    }}
-                  >
-                    <CiSettings style={{ fontSize: '20px' }} />
-                  </button>
-                  <button
-                    className={style.button}
-                    onClick={() => {
-                      onDelete(row.id);
-                    }}
-                  >
-                    <AiOutlineDelete style={{ fontSize: '20px' }} />
-                  </button>
+                <td>
+                  <div className={style.wrapbutton}>
+                    <button
+                      className={style.button}
+                      onClick={() => {
+                        setChangedItem(row);
+                        setIsOpenModal(true);
+                      }}
+                    >
+                      <CiSettings style={{ fontSize: '20px' }} />
+                    </button>
+                    <button
+                      className={style.button}
+                      onClick={() => {
+                        onDelete(row.id);
+                      }}
+                    >
+                      <AiOutlineDelete style={{ fontSize: '20px' }} />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
